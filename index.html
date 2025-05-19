@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haidi Ghanem - Art Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f8f8;
+      color: #222;
+    }
+    header {
+      background-color: #a8e6cf;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    nav a, nav button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      margin-top: 5px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .gallery {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .about {
+      padding: 40px 20px;
+      background: #fff;
+      text-align: center;
+    }
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .about p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Haidi Ghanem</h1>
+    <nav>
+      <a onclick="showSection('home')">Home</a>
+      <div class="dropdown">
+        <button>Gallery ▾</button>
+        <div class="dropdown-content">
+          <button onclick="showSection('artwork1')">Artwork 1</button>
+          <button onclick="showSection('selfportrait')">Self-Portrait</button>
+        </div>
+      </div>
+      <a onclick="showSection('about')">About</a>
+    </nav>
+  </header>
+
+  <div id="home">
+    <section class="about">
+      <h2>Welcome</h2>
+      <p>Explore the works of Haidi Ghanem. Use the menu to view different collections.</p>
+    </section>
+  </div>
+
+  <div id="artwork1" class="gallery">
+    <img src="https://i.postimg.cc/Y0VjYSH5/488940892-1681726292441952-4509375589661039343-n.jpg" alt="Artwork 1" />
+    <img src="https://i.postimg.cc/CL3zKdJD/489068295-1681726412441940-5255890765809217580-n.jpg" alt="Artwork 2" />
+    <img src="https://i.postimg.cc/YSk01V5C/489315101-1681721675775747-8875135174325905487-n.jpg" alt="Artwork 3" />
+    <img src="https://i.postimg.cc/Bn2tPswz/489688043-1681726189108629-4419274852354805922-n.jpg" alt="Artwork 4" />
+    <img src="https://i.postimg.cc/zDPy9xgx/489869330-1681721729109075-7363386070573509094-n.jpg" alt="Artwork 5" />
+    <img src="https://i.postimg.cc/WbFdj0mT/489950230-1681726355775279-6888329260434479019-n.jpg" alt="Artwork 6" />
+    <img src="https://i.postimg.cc/rpJmgjTC/490382665-1681721599109088-4636341295600018639-n.jpg" alt="Artwork 7" />
+  </div>
+
+  <div id="selfportrait" class="gallery">
+    <img src="https://i.postimg.cc/2jnMFL6b/480589189-1644719989475916-3997946565499506237-n.jpg" alt="Self-Portrait 1" />
+    <img src="https://i.postimg.cc/d1yXfLjf/485157352-1667822620498986-4234120727452975798-n.jpg" alt="Self-Portrait 2" />
+    <img src="https://i.postimg.cc/fyQFQDHR/485305117-1667822630498985-6998724907073822095-n.jpg" alt="Self-Portrait 3" />
+    <img src="https://i.postimg.cc/1X0d92Tc/485372153-1667822610498987-1051118275009799373-n.jpg" alt="Self-Portrait 4" />
+    <img src="https://i.postimg.cc/FsmqPFdP/485615519-1667822603832321-8570050126138132082-n.jpg" alt="Self-Portrait 5" />
+    <img src="https://i.postimg.cc/RVRY2rwv/485625690-1667822617165653-6516208254740483713-n.jpg" alt="Self-Portrait 6" />
+    <img src="https://i.postimg.cc/6pbm5dHS/485743934-1667822613832320-4868062653901979229-n.jpg" alt="Self-Portrait 7" />
+  </div>
+
+  <div id="about" class="about" style="display: none;">
+    <h2>About Me</h2>
+    <p>This is a short paragraph where you can talk about your artistic journey, your favorite mediums, or what inspires your work. Everything here is editable.</p>
+  </div>
+
+  <footer>
+    <p>Contact: your@email.com | Instagram: @yourhandle</p>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = ['home', 'artwork1', 'selfportrait', 'about'];
+      sections.forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+      document.getElementById(sectionId).style.display = sectionId === 'home' ? 'block' : 'grid';
+    }
+    showSection('home');
+  </script>
+</body>
+</html>
